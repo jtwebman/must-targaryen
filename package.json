@@ -1,0 +1,39 @@
+{
+  "name": "must-targaryen",
+  "version": "1.0.0",
+  "description": "Adds Firebase Targaryen rule assertions into Must",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtwebman/must-targaryen.git"
+  },
+  "keywords": [
+    "must",
+    "assertions",
+    "plugin",
+    "must-plugin",
+    "targaryen",
+    "firebase"
+  ],
+  "author": "JT Turner <jtwebman@gmail.com> (http://www.jtwebman.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jtwebman/must-targaryen/issues"
+  },
+  "homepage": "https://github.com/jtwebman/must-targaryen#readme",
+  "devDependencies": {
+    "must": "^0.13.1",
+    "eslint": "^1.8.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "oolong": "^1.13.0",
+    "targaryen": "^2.0.0"
+  },
+  "peerDependencies": {
+    "must": "^0.13.1"
+  }
+}
