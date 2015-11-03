@@ -1,4 +1,4 @@
-# Firebase Targaryen Must assertions
+# Firebase Targaryen Must Assertions
 
 Currently [Targaryen](https://github.com/goldibex/targaryen) only has
 [Chia](http://chaijs.com/) and [Jasimin](http://jasmine.github.io/) hooks but
