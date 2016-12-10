@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "oolong": "^1.13.0",
-    "targaryen": "^2.0.0"
+    "targaryen": "3.0.0-rc.0"
   },
   "peerDependencies": {
     "must": "^0.13.1"

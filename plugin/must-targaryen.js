@@ -1,7 +1,9 @@
 'use strict';
 
-var helpers = require('targaryen/lib/test-helpers');
+var targaryen = require('targaryen');
 var Oolong = require('oolong');
+
+var helpers = targaryen.util;
 
 function mustTargaryen(Must) {
   Oolong.defineGetter(Must.prototype, 'can', function() {
@@ -28,14 +30,13 @@ function mustTargaryen(Must) {
   Must.prototype.path = function(path) {
     helpers.assertConfigured();
 
-    var root = helpers.getFirebaseData();
-    var rules = helpers.getFirebaseRules();
+    var database = helpers.getFirebaseData().as(this.actual);
     var positivity = this._targaryenPositivity;
     var operationType = this._targaryenOperation;
 
     if (operationType === 'read') {
 
-      var readResult = rules.tryRead(path, root, this.actual);
+      var readResult = database.read(path);
       if (positivity) {
         this.assert(readResult.allowed === true,
           helpers.unreadableError(readResult));
@@ -46,7 +47,7 @@ function mustTargaryen(Must) {
 
     } else if (operationType === 'write') {
       var newData = this._targaryenOperationData || null;
-      var writeResult = rules.tryWrite(path, root, newData, this.actual);
+      var writeResult = database.write(path, newData);
 
       if (positivity) {
         this.assert(writeResult.allowed === true,
@@ -61,7 +62,7 @@ function mustTargaryen(Must) {
   };
 }
 
-mustTargaryen.users = helpers.userDefinitions;
+mustTargaryen.users = helpers.users;
 mustTargaryen.setFirebaseData = helpers.setFirebaseData;
 mustTargaryen.setFirebaseRules = helpers.setFirebaseRules;
 
